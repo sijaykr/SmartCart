@@ -1,0 +1,286 @@
+/* ================================
+   SmartCart — Locked Dark Theme
+   High-contrast, fully legible
+   ================================ */
+
+/* ---- Color system ---- */
+:root {
+  --bg: #0b0f14;
+  --panel: #0f172a;
+  --card: #111827;
+  --card-2: #0e1623;
+  --border: #1f2937;
+  --border-2: #2c3746;
+
+  --text: #f5f7fb;          /* primary text (bright) */
+  --text-strong: #ffffff;   /* headings */
+  --muted: #cbd5e1;         /* captions / help */
+  --muted-2: #94a3b8;
+
+  --brand: #22d3ee;         /* cyan accent */
+  --brand-2: #0ea5b7;       /* deeper cyan */
+
+  --gold: #f1c40f;
+  --silver: #c0c7d1;
+  --bronze: #f4a261;
+
+  --chip-bg: #0b1220;
+  --chip-border: #314054;
+
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+}
+
+/* Force dark base across app */
+html, body, .stApp {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Streamlit headings & paragraphs */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-strong) !important;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.2px;
+}
+
+p, span, li, label, code, pre, small, .stMarkdown, .stCaption, .st-emotion-cache, .stText, .stWrite {
+  color: var(--text) !important;
+}
+
+/* Section separators */
+hr, .stHorizontalBlock {
+  border-color: var(--border-2) !important;
+  color: var(--border-2) !important;
+}
+
+/* Side bar */
+section[data-testid="stSidebar"] {
+  background: var(--panel) !important;
+  border-right: 1px solid var(--border) !important;
+}
+section[data-testid="stSidebar"] * {
+  color: var(--text) !important;
+}
+
+/* Metrics */
+div[data-testid="stMetricValue"], div[data-testid="stMetricDelta"], div[data-testid="stMetricLabel"] {
+  color: var(--text) !important;
+}
+
+/* Inputs (Selectbox / Multiselect / Slider / Text inputs) */
+.stSelectbox, .stMultiSelect, .stTextInput, .stTextArea, .stNumberInput, .stDateInput {
+  color: var(--text) !important;
+}
+.stSelectbox > div, .stMultiSelect > div, .stTextInput > div, .stTextArea > div, .stNumberInput > div, .stDateInput > div {
+  background: var(--card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+}
+.stSelectbox label, .stMultiSelect label, .stTextInput label, .stTextArea label, .stNumberInput label, .stDateInput label {
+  color: var(--text-strong) !important;
+}
+
+/* Multiselect chosen chips (selected items) */
+.stMultiSelect [data-baseweb="tag"] {
+  background: var(--chip-bg) !important;
+  border: 1px solid var(--chip-border) !important;
+  color: var(--text) !important;
+}
+.stMultiSelect [data-baseweb="tag"] span {
+  color: var(--text) !important;
+}
+
+/* Buttons */
+.stButton > button {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2)) !important;
+  color: #001018 !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  padding: 0.6rem 1.1rem !important;
+  box-shadow: 0 10px 24px rgba(34, 211, 238, 0.15) !important;
+}
+.stButton > button:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  transition: all 120ms ease;
+}
+
+/* Dataframes / tables */
+[data-testid="stTable"], .stDataFrame {
+  filter: none !important;
+  color: var(--text) !important;
+}
+[data-testid="stTable"] table, .stDataFrame table {
+  color: var(--text) !important;
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+}
+[data-testid="stTable"] th, .stDataFrame th {
+  color: var(--text-strong) !important;
+  background: var(--card) !important;
+  border-bottom: 1px solid var(--border-2) !important;
+}
+[data-testid="stTable"] td, .stDataFrame td {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Captions */
+.stCaption, .stMarkdown small, .stMarkdown em {
+  color: var(--muted) !important;
+}
+
+/* Info / warning / error boxes */
+.stAlert {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 12px !important;
+}
+
+/* Top bar badges for selected items */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 2px;
+}
+.badge-chip {
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge-chip .emoji {
+  filter: none !important;
+}
+
+/* Cards (generic) */
+.card {
+  background: var(--card);
+  color: var(--text) !important;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+}
+
+/* Recommendation header — explicitly white (bright) */
+.reco-header {
+  color: var(--text-strong) !important; /* “Top 3 Recommendations” */
+  margin-top: 6px;
+}
+
+/* Recommendation cards */
+.reco-card {
+  position: relative;
+  background: linear-gradient(180deg, var(--card), var(--card-2));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 14px 14px 14px;
+  min-height: 120px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  color: var(--text) !important;
+}
+.reco-card h4, .reco-card h3, .reco-card h5 {
+  color: var(--text-strong) !important;
+  margin: 0 0 6px 0;
+}
+.reco-card p, .reco-card span, .reco-card small {
+  color: var(--text) !important;
+}
+
+/* Rank medallion (numbers stay black by prior request) */
+.reco-rank {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  height: 42px;
+  width: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #000 !important;           /* rank 1/2/3 digits in BLACK */
+  font-weight: 700;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+.reco-rank-1 { background: linear-gradient(135deg, #ffec99, var(--gold)); }
+.reco-rank-2 { background: linear-gradient(135deg, #edf2f7, var(--silver)); }
+.reco-rank-3 { background: linear-gradient(135deg, #ffd8a8, var(--bronze)); }
+
+/* Type/meta row under item name */
+.reco-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.reco-meta strong, .reco-meta b {
+  color: var(--text) !important;
+}
+
+/* Streamlit containers & blocks */
+.block-container {
+  padding-top: 1.4rem;
+}
+
+/* Tooltips & popovers (best-effort) */
+[role="tooltip"], .stTooltip {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Code blocks */
+pre, code {
+  background: #0d1220 !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border-2) !important;
+  border-radius: 8px;
+}
+
+/* “Top 3 Recommendations” header inside the recommendations section */
+h3:has(span.sc-top3) { /* graceful fallback: if :has unsupported, the .reco-header above still applies */
+  color: var(--text-strong) !important;
+}
+
+/* Streamlit expander */
+.st-expander, .streamlit-expanderHeader, details {
+  background: var(--panel) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+
+/* Charts (canvas) area contrast */
+canvas {
+  background: var(--panel) !important;
+}
+
+/* Links */
+a, a:visited {
+  color: var(--brand) !important;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure select dropdown menus are dark */
+div[role="listbox"] {
+  background: var(--card) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--border) !important;
+}
+div[role="option"] {
+  color: var(--text) !important;
+}
